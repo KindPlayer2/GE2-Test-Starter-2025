@@ -1,0 +1,128 @@
+[gd_scene load_steps=14 format=3 uid="uid://cj0020cblh2aw"]
+
+[ext_resource type="Script" uid="uid://hr56mov2tne6" path="res://character_body_3d.gd" id="1_7888w"]
+[ext_resource type="Script" uid="uid://cwul6krn1u7oa" path="res://propeller.gd" id="2_drn01"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_drn01"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lkv2y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ule7c"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vjnpv"]
+material = SubResource("StandardMaterial3D_ule7c")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ue262"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yq4ef"]
+material = SubResource("StandardMaterial3D_ue262")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6n54c"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_tx020"]
+material = SubResource("StandardMaterial3D_6n54c")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnslj"]
+albedo_color = Color(0.582387, 0.133105, 0.347392, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xntl2"]
+material = SubResource("StandardMaterial3D_bnslj")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_drn01"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_7888w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.374784, 0, 0, 0, -0.227348, 0, 0, 0, 0.790506, 0.0660859, -0.0880941, 0.0420804)
+mesh = SubResource("BoxMesh_drn01")
+
+[node name="arm" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0563719, 0, 0.492034, 0, 0.0828165, 0, -0.0506347, 0, 0.547784, -0.332499, -0.0203969, -0.567606)
+mesh = SubResource("BoxMesh_lkv2y")
+
+[node name="arm2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0596111, 0, -0.454558, 0, 0.0828165, 0, 0.046778, 0, 0.579261, 0.436724, -0.0203969, -0.567606)
+mesh = SubResource("BoxMesh_lkv2y")
+
+[node name="arm3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0614163, 0, -0.431268, 0, 0.0828165, 0, 0.0443813, 0, -0.596803, 0.415557, -0.0192271, 0.69858)
+mesh = SubResource("BoxMesh_lkv2y")
+
+[node name="arm4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.054323, 0, 0.513336, 0, 0.0828165, 0, -0.0528268, 0, -0.527875, -0.349343, -0.0192271, 0.617133)
+mesh = SubResource("BoxMesh_lkv2y")
+
+[node name="propeller1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0139143, 0, -0.188987, 0, 0.0828165, 0, 0.0153002, 0, 0.171868, -0.543965, 0.0494847, -0.80385)
+mesh = SubResource("BoxMesh_vjnpv")
+skeleton = NodePath("../arm")
+script = ExtResource("2_drn01")
+
+[node name="propeller2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0147298, 0, 0.179311, 0, 0.0828165, 0, -0.0145169, 0, 0.18194, -0.543965, 0.0494847, -0.80385)
+mesh = SubResource("BoxMesh_vjnpv")
+skeleton = NodePath("../arm")
+script = ExtResource("2_drn01")
+
+[node name="propeller3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0139143, 0, -0.188987, 0, 0.0828165, 0, 0.0153002, 0, 0.171868, 0.629196, 0.0494847, -0.80385)
+mesh = SubResource("BoxMesh_vjnpv")
+skeleton = NodePath("../arm")
+script = ExtResource("2_drn01")
+
+[node name="propeller4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0147298, 0, 0.179311, 0, 0.0828165, 0, -0.0145169, 0, 0.18194, 0.629196, 0.0494847, -0.80385)
+mesh = SubResource("BoxMesh_vjnpv")
+skeleton = NodePath("../arm")
+script = ExtResource("2_drn01")
+
+[node name="propeller5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0139143, 0, -0.188987, 0, 0.0828165, 0, 0.0153002, 0, 0.171868, 0.602895, 0.0494847, 0.944703)
+mesh = SubResource("BoxMesh_vjnpv")
+skeleton = NodePath("../arm")
+script = ExtResource("2_drn01")
+
+[node name="propeller6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0147298, 0, 0.179311, 0, 0.0828165, 0, -0.0145169, 0, 0.18194, 0.602895, 0.0494847, 0.944703)
+mesh = SubResource("BoxMesh_vjnpv")
+skeleton = NodePath("../arm")
+script = ExtResource("2_drn01")
+
+[node name="propeller7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0139143, 0, -0.188987, 0, 0.0828165, 0, 0.0153002, 0, 0.171868, -0.569864, 0.0494847, 0.841542)
+mesh = SubResource("BoxMesh_vjnpv")
+skeleton = NodePath("../arm")
+script = ExtResource("2_drn01")
+
+[node name="propeller8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0147298, 0, 0.179311, 0, 0.0828165, 0, -0.0145169, 0, 0.18194, -0.569864, 0.0494847, 0.841542)
+mesh = SubResource("BoxMesh_vjnpv")
+skeleton = NodePath("../arm")
+script = ExtResource("2_drn01")
+
+[node name="eye" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.112403, 0, 0, 0, 0.133079, 0, 0, 0, 0.115764, 0, 0, 0)
+mesh = SubResource("SphereMesh_yq4ef")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="eye"]
+transform = Transform3D(0.664204, 0, 0, 0, 1, 0, 0, 0, 0.602947, 0, 0.190634, 0.00883223)
+mesh = SubResource("SphereMesh_tx020")
+
+[node name="eye2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.112403, 0, 0, 0, 0.133079, 0, 0, 0, 0.115764, 0.141572, 0, 0)
+mesh = SubResource("SphereMesh_yq4ef")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="eye2"]
+transform = Transform3D(0.664204, 0, 0, 0, 1, 0, 0, 0, 0.602947, 0, 0.190634, 0.00883223)
+mesh = SubResource("SphereMesh_tx020")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.333537, 0, 0, 0, -0.204668, 0, 0, 0, 0.026788, 0.0618475, 0, 0.194534)
+mesh = SubResource("BoxMesh_xntl2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.403225, 0)
+shape = SubResource("BoxShape3D_drn01")

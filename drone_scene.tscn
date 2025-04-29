@@ -1,4 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1mt883kcp3i"]
+[gd_scene load_steps=12 format=3 uid="uid://b1mt883kcp3i"]
+
+[ext_resource type="Script" uid="uid://4uow08mlhhp1" path="res://camera_3d.gd" id="1_qhlfa"]
+[ext_resource type="PackedScene" uid="uid://cj0020cblh2aw" path="res://TheDrone.tscn" id="2_jgr37"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jgr37"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -22,6 +25,15 @@ size = Vector2(100, 100)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_jgr37"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jgr37"]
+albedo_color = Color(1, 0.027451, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qrxkg"]
+material = SubResource("StandardMaterial3D_jgr37")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nb8mf"]
+size = Vector3(0.973633, 4.96472, 1)
+
 [node name="drone_scene" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -39,5 +51,75 @@ mesh = SubResource("PlaneMesh_qhlfa")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_jgr37")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10388, 3.01379)
+script = ExtResource("1_qhlfa")
+player = NodePath("../CharacterBody3D")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_jgr37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26138, 0, 0)
+
+[node name="PointOfReference" type="RigidBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PointOfReference"]
+transform = Transform3D(1, 0, 0, 0, 8.90948, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_qrxkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PointOfReference"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0131836, 1.98236, 0)
+shape = SubResource("BoxShape3D_nb8mf")
+
+[node name="PointOfReference2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15939, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PointOfReference2"]
+transform = Transform3D(1, 0, 0, 0, 8.90948, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_qrxkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PointOfReference2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0131836, 1.98236, 0)
+shape = SubResource("BoxShape3D_nb8mf")
+
+[node name="PointOfReference3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.61719)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PointOfReference3"]
+transform = Transform3D(1, 0, 0, 0, 8.90948, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_qrxkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PointOfReference3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0131836, 1.98236, 0)
+shape = SubResource("BoxShape3D_nb8mf")
+
+[node name="PointOfReference4" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31732, 0, 4.17579)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PointOfReference4"]
+transform = Transform3D(1, 0, 0, 0, 8.90948, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_qrxkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PointOfReference4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0131836, 1.98236, 0)
+shape = SubResource("BoxShape3D_nb8mf")
+
+[node name="PointOfReference5" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.84206, 0, 4.17579)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PointOfReference5"]
+transform = Transform3D(1, 0, 0, 0, 8.90948, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_qrxkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PointOfReference5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0131836, 1.98236, 0)
+shape = SubResource("BoxShape3D_nb8mf")
+
+[node name="PointOfReference6" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31732, 0, 10.793)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PointOfReference6"]
+transform = Transform3D(1, 0, 0, 0, 8.90948, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_qrxkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PointOfReference6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0131836, 1.98236, 0)
+shape = SubResource("BoxShape3D_nb8mf")
